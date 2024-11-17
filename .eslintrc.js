@@ -41,7 +41,7 @@ module.exports = {
 
     // Complexity management
     'max-lines-per-function': ['warn', {
-      max: 100,
+      max: 150,
       skipBlankLines: true,
       skipComments: true
     }],
