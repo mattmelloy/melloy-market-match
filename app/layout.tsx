@@ -10,10 +10,10 @@ export default function RootLayout({
   children,
 }: {
   children: React.ReactNode
-}) {
+}): React.ReactElement {
   const [isClient, setIsClient] = useState(false)
 
-  useEffect(() => {
+  useEffect((): void => {
     setIsClient(true)
   }, [])
 

@@ -4,14 +4,14 @@ import Link from 'next/link'
 import { useState, FormEvent } from 'react'
 import { insertMarketEntry } from '@/src/utils/supabase'
 
-export default function UpdateValue() {
+export default function UpdateValue(): React.ReactElement {
   const [name, setName] = useState('')
   const [shareValue, setShareValue] = useState('')
   const [error, setError] = useState('')
   const [success, setSuccess] = useState('')
   const [isSubmitting, setIsSubmitting] = useState(false)
 
-  const handleSubmit = async (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent): Promise<void> => {
     e.preventDefault()
     setError('')
     setSuccess('')

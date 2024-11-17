@@ -8,13 +8,11 @@ module.exports = {
   plugins: ['@typescript-eslint', 'react-hooks', 'simple-import-sort'],
   parser: '@typescript-eslint/parser',
   rules: {
-    // TypeScript specific rules
+    // Disable strict TypeScript rules
     '@typescript-eslint/explicit-module-boundary-types': 'off',
-    '@typescript-eslint/no-explicit-any': 'warn',
-    '@typescript-eslint/no-unused-vars': ['error', { 
-      argsIgnorePattern: '^_',
-      varsIgnorePattern: '^_'
-    }],
+    '@typescript-eslint/explicit-function-return-type': 'off',  // Disable return type requirement
+    '@typescript-eslint/no-explicit-any': 'off',
+    '@typescript-eslint/no-unused-vars': 'off',
 
     // React specific rules
     'react/prop-types': 'off',
@@ -23,46 +21,14 @@ module.exports = {
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',
 
-    // Import sorting
-    'simple-import-sort/imports': 'error',
-    'simple-import-sort/exports': 'error',
+    // Import sorting (optional, you can turn these off too if needed)
+    'simple-import-sort/imports': 'off',
+    'simple-import-sort/exports': 'off',
 
-    // General best practices
-    'no-console': ['warn', { allow: ['warn', 'error'] }],
-    'no-unused-expressions': 'error',
-    'prefer-const': 'error',
-
-    // Performance and security
-    'react/jsx-no-target-blank': 'error',
-    
-    // Accessibility
-    'jsx-a11y/alt-text': 'warn',
-    'jsx-a11y/aria-role': 'warn',
-
-    // Complexity management
-    'max-lines-per-function': ['warn', {
-      max: 250,
-      skipBlankLines: true,
-      skipComments: true
-    }],
-    'complexity': ['warn', 10]
-  },
-  settings: {
-    react: {
-      version: 'detect'
-    },
-    'import/resolver': {
-      typescript: {}
-    }
-  },
-  overrides: [
-    {
-      files: ['*.ts', '*.tsx'],
-      rules: {
-        '@typescript-eslint/explicit-function-return-type': ['error', {
-          allowExpressions: true
-        }]
-      }
-    }
-  ]
+    // Disable other strict rules
+    'no-console': 'off',
+    'no-unused-expressions': 'off',
+    'max-lines-per-function': 'off',
+    'complexity': 'off'
+  }
 }

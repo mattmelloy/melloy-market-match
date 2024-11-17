@@ -35,7 +35,7 @@ ChartJS.register(
   Legend
 )
 
-export default function Leaderboard() {
+export default function Leaderboard(): React.ReactElement {
   const [playerData, setPlayerData] = useState<{ [key: string]: MarketEntry[] }>({})
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
@@ -51,7 +51,7 @@ export default function Leaderboard() {
     loadLeaderboardData()
   }, [])
 
-  const loadLeaderboardData = async () => {
+  const loadLeaderboardData = async (): Promise<void> => {
     setLoading(true)
     const { data, error } = await fetchMarketEntries()
 
@@ -77,7 +77,7 @@ export default function Leaderboard() {
     setLoading(false)
   }
 
-  const handleDeleteEntry = async () => {
+  const handleDeleteEntry = async (): Promise<void> => {
     if (!deleteConfirmation.id) return
 
     const { error } = await deleteMarketEntry(deleteConfirmation.id)

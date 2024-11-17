@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-export default function About() {
+export default function About(): React.ReactElement {
   return (
     <div className="container mx-auto px-4 py-8">
       <div className="max-w-2xl mx-auto bg-white shadow-lg rounded-lg p-8">
