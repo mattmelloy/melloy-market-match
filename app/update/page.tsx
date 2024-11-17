@@ -33,7 +33,7 @@ export default function UpdateValue(): React.ReactElement {
         return
       }
 
-      const { data, error } = await insertMarketEntry({
+      const { data: _data, error } = await insertMarketEntry({
         player_name: name.trim(),
         share_value: parsedShareValue
       })
