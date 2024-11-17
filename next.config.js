@@ -1,5 +1,5 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
+module.exports = {
   reactStrictMode: true,
   swcMinify: true,
   
@@ -31,12 +31,5 @@ const nextConfig = {
         permanent: true
       }
     ]
-  },
-
-  // Typescript configuration
-  typescript: {
-    ignoreBuildErrors: false
   }
 }
-
-module.exports = nextConfig
