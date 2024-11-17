@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react'
 import { createClient, SupabaseClient } from '@supabase/supabase-js'
 
-export function useSupabase() {
+export function useSupabase(): SupabaseClient | null {
   const [supabase, setSupabase] = useState<SupabaseClient | null>(null)
 
   useEffect(() => {

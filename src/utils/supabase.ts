@@ -1,6 +1,10 @@
 'use client'
 
-import { createClient, SupabaseClient } from '@supabase/supabase-js'
+import { createClient } from '@supabase/supabase-js'
+
+type SupabaseError = {
+  message: string
+}
 
 // Ensure these are set in your .env.local file
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
@@ -28,8 +32,8 @@ export interface MarketEntry {
 
 // Utility function for consistent error handling
 export async function safeSupabaseCall<T>(
-  operation: () => Promise<{ data: T | null; error: any }>,
-  errorMessage: string = 'An error occurred'
+  operation: () => Promise<{ data: T | null; error: SupabaseError | null }>,
+  errorMessage = 'An error occurred'
 ): Promise<{ data: T | null; error: string | null }> {
   try {
     const { data, error } = await operation()
